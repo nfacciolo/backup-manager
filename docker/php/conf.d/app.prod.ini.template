@@ -1,0 +1,2 @@
+opcache.preload_user = ${APP_USER}
+opcache.preload = /home/${APP_USER}/app/config/preload.php

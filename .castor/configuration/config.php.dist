@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * Configuration template for the project
+ *
+ * Copy this file to config.php and update the values according to your environment.
+ *
+ * @example cp .castor/config.php.dist .castor/config.php
+ */
+return [
+    'PROJECT_NAME' => 'my-project',
+    'APP_USER' => 'reactic',
+    'DATABASE_USERNAME' => 'secret',
+    'DATABASE_PASSWORD' => 'secret',
+    'DATABASE_NAME' => 'secret',
+    'ENV' => 'dev',
+];
