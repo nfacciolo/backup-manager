@@ -9,6 +9,7 @@
  */
 return [
     'PROJECT_NAME' => 'my-project',
+    'DOCKER_HUB_USERNAME' => 'secret',
     'APP_USER' => 'reactic',
     'DATABASE_USERNAME' => 'secret',
     'DATABASE_PASSWORD' => 'secret',

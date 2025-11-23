@@ -38,6 +38,11 @@ function ensureConfiguration(): array
         $defaults['PROJECT_NAME'] ?? 'my-project'
     );
 
+    $config['DOCKER_HUB_USERNAME'] = io()->ask(
+        'Nom d\'utilisateur Docker Hub',
+        $defaults['DOCKER_HUB_USERNAME'] ?? ''
+    );
+
     $config['APP_USER'] = io()->ask(
         'Nom de l\'utilisateur système dans le container (APP_USER)',
         $defaults['APP_USER'] ?? 'symfony'

@@ -1,0 +1,9 @@
+services:
+    php:
+        build:
+            context: .
+            target: app_prod
+        image: nicolasfco/${PROJECT_NAME}:latest
+
+
+

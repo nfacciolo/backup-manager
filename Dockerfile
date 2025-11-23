@@ -114,21 +114,22 @@ RUN envsubst '${APP_USER}' < /tmp/app.prod.ini.template > "$PHP_INI_DIR/conf.d/a
 USER ${APP_USER}
 
 # prevent the reinstallation of vendors at every changes in the source code
-COPY --link composer.* symfony.* ./
+COPY --link --chown=${APP_USER}:${APP_USER} composer.* symfony.* ./
 
 RUN set -eux; \
     composer install --prefer-dist --no-autoloader --no-interaction --no-scripts --no-progress --no-dev; \
     composer clear-cache
 
 # copy only specifically what we need
-COPY .env .env.prod ./
-COPY assets assets/
-COPY bin bin/
-COPY config config/
-COPY public public/
-COPY src src/
-COPY templates templates/
-COPY translations translations/
+COPY --chown=${APP_USER}:${APP_USER} .env  ./
+#COPY --chown=${APP_USER}:${APP_USER} .env.prod  ./
+#COPY --chown=${APP_USER}:${APP_USER} assets assets/
+COPY --chown=${APP_USER}:${APP_USER} bin bin/
+COPY --chown=${APP_USER}:${APP_USER} config config/
+COPY --chown=${APP_USER}:${APP_USER} public public/
+COPY --chown=${APP_USER}:${APP_USER} src src/
+#COPY --chown=${APP_USER}:${APP_USER} templates templates/
+#COPY --chown=${APP_USER}:${APP_USER} translations translations/
 
 RUN set -eux; \
 	mkdir -p var/cache var/log; \

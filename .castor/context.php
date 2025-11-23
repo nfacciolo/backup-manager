@@ -19,6 +19,7 @@ function getContext(): Context
 
     return new Context(environment: [
         'PROJECT_NAME' => $config['PROJECT_NAME'] ?? '',
+        'DOCKER_HUB_USERNAME' => $config['DOCKER_HUB_USERNAME'] ?? '',
         'APP_USER' => $config['APP_USER'] ?? 'symfony',
         'DATABASE_USERNAME' => $config['DATABASE_USERNAME'] ?? '',
         'DATABASE_PASSWORD' => $config['DATABASE_PASSWORD'] ?? '',
