@@ -33,6 +33,7 @@ services:
         #        restart: unless-stopped
         volumes:
             - ./:/home/${APP_USER:-symfony}/app/
+            - ./docker/restic/pass:/home/${APP_USER:-symfony}/pass
         #   - ./docker/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
 
         healthcheck:
@@ -52,6 +53,8 @@ services:
             XDEBUG_MODE: 'debug'
             PHP_DATE_TIMEZONE: 'Europe/Paris'
             XDEBUG_CONFIG: 'mode=debug client_host=host.docker.internal idekey=phpstorm-xdebug start_with_request=trigger remote_handler=dbgp client_port=9003'
+
+            RESTIC_PASSWORD_FILE: /home/${APP_USER/pass
         extra_hosts:
             - host.docker.internal:host-gateway
         networks:

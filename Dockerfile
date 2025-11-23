@@ -22,6 +22,7 @@ RUN apk add --no-cache \
         gettext \
         unzip \
         shadow \
+        restic \
     ;
 
 COPY --from=php_extension_installer /usr/bin/install-php-extensions /usr/local/bin/
