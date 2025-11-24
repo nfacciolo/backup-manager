@@ -43,18 +43,13 @@ services:
             retries: 20
             start_period: 60s
         environment:
-            # Run "composer require symfony/orm-pack" to install and configure Doctrine ORM
-            DATABASE_URL: pgsql://${DATABASE_USERNAME}:${DATABASE_PASSWORD}@${PROJECT_NAME}_database:5432/${DATABASE_NAME}?serverVersion=16&charset=utf8
             APP_ENV: dev
             APP_DEBUG: 1
-            HOSTNAME: localhost
-            MAILER_DSN: smtp://mailhog:1025
-            ADMIN_PREFIX_ROUTE: admin
             XDEBUG_MODE: 'debug'
             PHP_DATE_TIMEZONE: 'Europe/Paris'
             XDEBUG_CONFIG: 'mode=debug client_host=host.docker.internal idekey=phpstorm-xdebug start_with_request=trigger remote_handler=dbgp client_port=9003'
 
-            RESTIC_PASSWORD_FILE: /home/${APP_USER/pass
+            RESTIC_PASSWORD_FILE: /home/${APP_USER:-symfony}/pass
         extra_hosts:
             - host.docker.internal:host-gateway
         networks:

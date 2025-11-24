@@ -24,6 +24,8 @@ class BackupRunCommand extends Command
 
     protected function configure(): void
     {
+        //  php bin/console app:backup:run --website=digitalberry_fr --source=/home/symfony/volumes/digitalberry_fr/_data/
+        //  php bin/console app:backup:run --website=apm-longchamp_fr --source=/home/symfony/volumes/apm-longchamp_fr/_data/
         $this
             ->addOption('website', null, InputOption::VALUE_REQUIRED, 'Website/client identifier (e.g., digitalberry_fr)')
             ->addOption('source', null, InputOption::VALUE_OPTIONAL, 'Source directory to backup')
