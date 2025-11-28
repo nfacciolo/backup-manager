@@ -23,6 +23,7 @@ RUN apk add --no-cache \
         unzip \
         shadow \
         restic \
+        openssh-client \
     ;
 
 COPY --from=php_extension_installer /usr/bin/install-php-extensions /usr/local/bin/

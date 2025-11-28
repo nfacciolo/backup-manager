@@ -66,7 +66,8 @@ function push(): void
 
     // Build the Docker image
     io()->writeln('Building Docker image...');
-    run('docker compose -f docker-build-php.yml build');
+    $imageName = "{$dockerHubUsername}/{$projectName}:latest";
+    run("docker build -f Dockerfile --target app_prod -t {$imageName} .");
 
     // Tag the image with version
     io()->writeln(sprintf('Tagging image as %s/%s:%s', $dockerHubUsername, $projectName, $newVersion));
